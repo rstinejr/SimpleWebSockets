@@ -46,12 +46,22 @@ namespace waltonstine.websockets {
 
             logger.LogInformation($"Upload method called: WebSocket request, request path is {httpCtx.Request.Path}");
 
-            byte[] buffer = new byte[1024 * 4];
-            var    result = await sock.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            int totalBytes = 0;
+            for (;;) {
+                byte[] buffer = new byte[10240];
+                WebSocketReceiveResult result = await sock.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+                logger.LogInformation($"Received {result.Count} bytes from client.");
+                totalBytes += result.Count;
+                if (result.EndOfMessage || result.CloseStatus != null) {
+                    break;
+                }
+            }
 
-            logger.LogInformation($"Received {result.Count} bytes from client.");
+            Console.WriteLine($"Total bytes uploaded: {totalBytes}");
 
-            await sock.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
+            await sock.CloseAsync(WebSocketCloseStatus.NormalClosure, "Done reading", CancellationToken.None);
+
+            return;
         }
 
         private IRouter buildRoutes(IApplicationBuilder app) {
