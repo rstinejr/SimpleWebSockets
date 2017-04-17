@@ -47,8 +47,9 @@ namespace waltonstine.websockets {
             logger.LogInformation($"Upload method called: WebSocket request, request path is {httpCtx.Request.Path}");
 
             int totalBytes = 0;
+            byte[] buffer = new byte[10240];
+
             for (;;) {
-                byte[] buffer = new byte[10240];
                 WebSocketReceiveResult result = await sock.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
                 logger.LogInformation($"Received {result.Count} bytes from client.");
                 totalBytes += result.Count;
