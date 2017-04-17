@@ -30,9 +30,11 @@ namespace waltonstine.websockets.demo
             ArraySegment<byte> buff = new ArraySegment<byte>(bytes, 0, cnt);
 
             await sock.SendAsync(buff, WebSocketMessageType.Binary, true, tok);
-            Console.WriteLine("Bytes sent! <<<<<<<");
-
-            Thread.Sleep(2000);
+            Console.WriteLine($"{cnt} bytes sent! <<<<<<<");
+            
+            // I was getting server side errors on upload about reset connections.
+            // This Sleep call is a hack to work around that problem.
+            Thread.Sleep(200); 
 
             await sock.CloseAsync(WebSocketCloseStatus.NormalClosure, "all she wrote", tok);
 
