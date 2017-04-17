@@ -2,7 +2,7 @@
   "profiles": {
     "WebSocketsClient": {
       "commandName": "Project",
-      "commandLineArgs": "SendFile.cs"
+      "commandLineArgs": "Payload.exe"
     }
   }
 }

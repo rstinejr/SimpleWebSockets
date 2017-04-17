@@ -14,7 +14,7 @@ namespace waltonstine.websockets.demo
 
             ClientWebSocket   sock = new ClientWebSocket();
             CancellationToken tok  = new CancellationToken();
-            Uri serverUri          = new Uri("ws://localhost:5000");
+            Uri serverUri          = new Uri("ws://localhost:5000/upload");
             Task sockTask          = sock.ConnectAsync(serverUri, tok);
             if ( ! sockTask.Wait(5000) ) {
                 Console.WriteLine("Timeout attempting WebSocket connection");
