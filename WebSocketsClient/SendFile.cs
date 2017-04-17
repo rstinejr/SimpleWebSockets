@@ -16,8 +16,6 @@ namespace waltonstine.websockets.demo
 
             int cnt = br.Read(bytes, 0, bytes.Length);
 
-            ArraySegment<byte> buff = new ArraySegment<byte>(bytes);
-
             ClientWebSocket   sock = new ClientWebSocket();
             CancellationToken tok  = new CancellationToken();
             Uri serverUri          = new Uri("ws://localhost:5000/upload");
@@ -28,6 +26,8 @@ namespace waltonstine.websockets.demo
                 return;
             }
             Console.WriteLine("CONNECTED!!! <<<<<<<");
+
+            ArraySegment<byte> buff = new ArraySegment<byte>(bytes, 0, cnt);
 
             await sock.SendAsync(buff, WebSocketMessageType.Binary, true, tok);
             Console.WriteLine("Bytes sent! <<<<<<<");
