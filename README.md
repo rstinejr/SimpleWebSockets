@@ -24,6 +24,7 @@ To build WebSocketsServer from the commandline,
 3. `dotnet build`
 
 Expected output from the *build* command is:
+
 ```
 Build succeeded.
     0 Warning(s)
@@ -46,13 +47,12 @@ To build WebSocketsClient from the commandine, open a new command window and
 The output from the *build* command should end with
 
 ```
-
 Build succeeded.
     0 Warning(s)
         0 Error(s)
 ```
 
-To upload, e.g., *Payload.exe* to the WebSocketServer, enter ```dotnet run Payload.exe*.
+To upload, e.g., *Payload.exe* to the WebSocketServer, enter `dotnet run Payload.exe`.
 
 Note that the client reports writing 8704 bytes, and the server reports receiving the same 
 number of bytes.
