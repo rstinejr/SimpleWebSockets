@@ -9,7 +9,8 @@ ITQ blog post
 
 ## Build Notes
 
-The project was build on 64-bit Windows 10, using dotnet 1.1.0 and VisualStudio 2017.
+The project was build on 64-bit Windows 10, using dotnet 1.1.0 and VisualStudio 2017. It was also built and run on 
+64-bit CentOS 7.1.
 
 ## To Build
 

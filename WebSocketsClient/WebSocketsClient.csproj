@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Net.WebSockets.Client" Version="4.0.0" />
+    <PackageReference Include="System.Net.WebSockets.Client" Version="4.*" />
   </ItemGroup>
 
   <ItemGroup>
