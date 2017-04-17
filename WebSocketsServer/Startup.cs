@@ -43,7 +43,7 @@ namespace waltonstine.websockets {
         }
 
         private async Task Upload(HttpContext httpCtx, WebSocket sock, ILogger logger) {
-            logger.LogInformation("Upload method called: WebSocket request!");
+            Console.WriteLine("Upload method called: WebSocket request!");
 
             byte[] buffer = new byte[1024 * 4];
             var    result = await sock.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
