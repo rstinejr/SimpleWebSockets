@@ -3,7 +3,7 @@ Minimal example of WebSockets in .NET Core
 
 This project lays out a minimal client and server that illustrate the use of WebSockets
 in .NET Core. It borrows heavily from the AspNet GitHup project
-[EchoApp](web site https://github.com/aspnet/WebSockets/tree/dev/samples/EchoApp) and
+[EchoApp](https://github.com/aspnet/WebSockets/tree/dev/samples/EchoApp) and
 ITQ blog post
 [NET 4.5 WebSocket client without a browser](http://itq.nl/net-4-5-websocket-client-without-a-browser/).
 
@@ -17,7 +17,8 @@ The project was build on 64-bit Windows 10, using dotnet 1.1.0 and VisualStudio 
 First, install dotnet 1.1.
 
 Download the project by opening a command window and executing 
-`git clone git@github.com:rstinejr/SimpleWebSockets.git`
+
+`git clone https://github.com/rstinejr/SimpleWebSockets.git`
 
 To build WebSocketsServer from the commandline, 
 1. `cd SimpleWebSockets\WebSocketsServer`
